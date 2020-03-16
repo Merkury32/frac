@@ -8,15 +8,16 @@ function putPixel(x,y,r,g,b,a) {
   var id = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
   var pixels = id.data;
 
-  var sr = pixels[0];
-  var sg = pixels[1];
-  var sb = pixels[2];
+  var z = (y * id.width + x) * 4;
+
+  var sr = pixels[z];
+  var sg = pixels[z + 1];
+  var sb = pixels[z + 2];
 
   var zr = sr*(1-a) + a*r;
   var zg = sg*(1-a) + a*g;
   var zb = sb*(1-a) + a*b;
   
-  var z = (y * id.width + x) * 4;
   pixels[z] = Math.round(zr*255);
   pixels[z + 1] = Math.round(zg*255);
   pixels[z + 2] = Math.round(zb*255);
