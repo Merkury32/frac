@@ -16,7 +16,7 @@ function putPixel(x,y,r,g,b,a) {
   var zg = sg*(1-a) + a*g;
   var zb = sb*(1-a) + a*b;
   
-  var z = (x * id.width + y) * 4;
+  var z = (y * id.width + x) * 4;
   pixels[z] = Math.round(zr*255);
   pixels[z + 1] = Math.round(zg*255);
   pixels[z + 2] = Math.round(zb*255);
