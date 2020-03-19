@@ -1,5 +1,4 @@
 function putPixel(x,y,r,g,b,a,imageData) {
-  debugger;
   var z = (y * imageData.width + x) * 4;
 
   var pixels = imageData.data;
@@ -19,7 +18,6 @@ function putPixel(x,y,r,g,b,a,imageData) {
 };
 
 function draw(){
-  debugger;
   var r = 1;
   var g = 0;
   var b = 0;
