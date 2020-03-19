@@ -19,14 +19,15 @@ function putPixel(x,y,r,g,b,a,imageData) {
 
 function draw(){
   let a = 1;
-
   let imageData = readPixels();
   for(let i = 0; i <=512; i++){
     for(let j = 0; j <=512; j++){
+      let x = (1+Math.sin(j))/2 * 512;
+      let y = (1+Math.sin(i))/2 * 512;
       let r = i/512;
       let g = j/512;
       let b = j/512;
-      putPixel(j,i,r,g,b,a,imageData);
+      putPixel(Math.round(x),Math.round(y),r,g,b,a,imageData);
     };
   };
   refreshPixels(imageData);
