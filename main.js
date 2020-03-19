@@ -24,8 +24,8 @@ function draw(){
   var a = 1;
 
   var imageData = readPixels();
-  for(i = 0; i <=100; i++){
-    for(j = 0; j <=100; j++){
+  for(i = 0; i <=512; i++){
+    for(j = 0; j <=512; j++){
       putPixel(j,i,r,g,b,a,imageData);
     };
   };
@@ -49,5 +49,5 @@ function refreshPixels(imageData){
   var canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');
 
-  ctx.putImageDate(imageData, 0, 0);
+  ctx.putImageData(imageData, 0, 0);
 };
