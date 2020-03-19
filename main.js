@@ -18,15 +18,15 @@ function putPixel(x,y,r,g,b,a,imageData) {
 };
 
 function draw(){
-  var r = 1;
-  var g = 0;
-  var b = 0;
   var a = 1;
 
   var imageData = readPixels();
   for(i = 0; i <=512; i++){
     for(j = 0; j <=512; j++){
       putPixel(j,i,r,g,b,a,imageData);
+      var r = i/512;
+      var g = j/512;
+      var b = j/512;
     };
   };
   refreshPixels(imageData);
