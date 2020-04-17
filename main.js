@@ -31,9 +31,8 @@ function draw(){
   let imageData = readPixels();
   for(let i = -512; i <=m; i++){
     let x = i/256;
-    console.log(x);
     for(let j = -512; j <=m; j++){
-      let y = j/512;
+      let y = j/256;
       let r = f(x,y);
       putPixel(i,j,r,0,0,a,imageData);
     };
