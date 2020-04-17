@@ -1,5 +1,4 @@
 function putPixel(x,y,r,g,b,a,imageData) {
-  debugger;
   let z = (y * imageData.width + x) * 4;
 
   let pixels = imageData.data;
@@ -24,10 +23,11 @@ let f = function(x,y){
 
 function draw(){
   let a = 1;
+  let m = 512;
   let imageData = readPixels();
-  for(let i = 0; i <=512; i++){
+  for(let i = 0; i <=m; i++){
     let x = i/256;
-    for(let j = 0; j <=512; j++){
+    for(let j = 0; j <=m; j++){
       let y = j/256;
       let r = f(x,y);
       putPixel(i,j,r,0,0,a,imageData);
