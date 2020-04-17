@@ -28,7 +28,6 @@ function draw(){
   let imageData = readPixels();
   for(let i = 0; i <=m; i++){
     let x = (i/(m/2) - 1)*2;
-    console.log(x);
     for(let j = 0; j <=m; j++){
       let y = (j/(m/2) - 1)*2;
       let r = f(x,y);
