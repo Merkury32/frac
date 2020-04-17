@@ -27,9 +27,9 @@ function draw(){
   let m = 512;
   let imageData = readPixels();
   for(let i = 0; i <=m; i++){
-    let x = (i/(m/2) - 1)*2;
+    let x = 4*i/m -2;
     for(let j = 0; j <=m; j++){
-      let y = (j/(m/2) - 1)*2;
+      let y = 4*j/m -2;
       let r = f(x,y);
       putPixel(i,j,r,0,0,a,imageData);
     };
