@@ -1,12 +1,13 @@
 function putPixel(x,y,r,g,b,a,imageData) {
+  debugger;
   let z = (y * imageData.width + x) * 4;
 
   let pixels = imageData.data;
   
-  let sr = pixels[z];
-  let sg = pixels[z + 1];
-  let sb = pixels[z + 2];
-  
+  let sr = pixels[z]/255;
+  let sg = pixels[z + 1]/255;
+  let sb = pixels[z + 2]/255;
+
   let zr = sr*(1-a) + a*r;
   let zg = sg*(1-a) + a*g;
   let zb = sb*(1-a) + a*b;
@@ -17,17 +18,19 @@ function putPixel(x,y,r,g,b,a,imageData) {
   pixels[z + 3] = Math.round(a*255);
 };
 
+let f = function(x,y){
+  return x*x+y*y;
+};
+
 function draw(){
   let a = 1;
   let imageData = readPixels();
   for(let i = 0; i <=512; i++){
+    let x = i/256;
     for(let j = 0; j <=512; j++){
-      let x = (1+Math.sin(j))/2 * 512;
-      let y = (1+Math.sin(i))/2 * 512;
-      let r = i/512;
-      let g = j/512;
-      let b = j/512;
-      putPixel(Math.round(x),Math.round(y),r,g,b,a,imageData);
+      let y = j/256;
+      let r = f(x,y);
+      putPixel(i,j,r,0,0,a,imageData);
     };
   };
   refreshPixels(imageData);
