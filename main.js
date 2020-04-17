@@ -1,24 +1,21 @@
 function putPixel(x,y,r,g,b,a,imageData) {
-  if(x < imageData.height && y < imageData.width  && x >= 0 && y >= 0){
-    let z = (y * imageData.width + x) * 4;
+  if(!(x < imageData.height && y < imageData.width  && x >= 0 && y >= 0)) return;
+  let z = (y * imageData.width + x) * 4;
 
-    let pixels = imageData.data;
+  let pixels = imageData.data;
     
-    let sr = pixels[z]/255;
-    let sg = pixels[z + 1]/255;
-    let sb = pixels[z + 2]/255;
+  let sr = pixels[z]/255;
+  let sg = pixels[z + 1]/255;
+  let sb = pixels[z + 2]/255;
   
-    let zr = sr*(1-a) + a*r;
-    let zg = sg*(1-a) + a*g;
-    let zb = sb*(1-a) + a*b;
+  let zr = sr*(1-a) + a*r;
+  let zg = sg*(1-a) + a*g;
+  let zb = sb*(1-a) + a*b;
   
-    pixels[z] = Math.round(zr*255);
-    pixels[z + 1] = Math.round(zg*255);
-    pixels[z + 2] = Math.round(zb*255);
-    pixels[z + 3] = Math.round(a*255);
-  }else{
-    return;
-  }
+  pixels[z] = Math.round(zr*255);
+  pixels[z + 1] = Math.round(zg*255);
+  pixels[z + 2] = Math.round(zb*255);
+  pixels[z + 3] = Math.round(a*255);
 };
 
 let f = function(x,y){
