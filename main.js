@@ -26,10 +26,13 @@ function draw(){
   let a = 1;
   let m = 512;
   let imageData = readPixels();
-  for(let i = -512; i <=m; i++){
+  for(let i = 0; i <=m; i++){
     let x = i/256;
-    for(let j = -512; j <=m; j++){
+    x--;
+    console.log(x);
+    for(let j = 0; j <=m; j++){
       let y = j/256;
+      y--;
       let r = f(x,y);
       putPixel(i,j,r,0,0,a,imageData);
     };
