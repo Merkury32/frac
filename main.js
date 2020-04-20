@@ -32,12 +32,12 @@ function draw(){
   let imageData = readPixels();
 
   for(let i = 0; i <=m; i++){
-    let x1 = 4 * i/m - 2;
-    let x2 = i/m * 4;
-    let y2 = i/m * 4;
-
+    let x1 = 4 * (i/m) - 2;
+    let x2 = Math.PI * (i/m) * 4;
+    
     for(let j = 0; j <=m; j++){
-      let y1 = 4 * j/m - 2;
+      let y1 = 4 * (j/m) - 2;
+      let y2 = Math.PI * (j/m) * 4;
       let r = fr(x1,y1);
       let g = fg(x2,y2);
       putPixel(i,j,r,g,0,a,imageData);
