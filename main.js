@@ -18,12 +18,18 @@ function putPixel(x,y,r,g,b,a,imageData) {
   pixels[z + 3] = Math.round(a*255);
 };
 
-let fr = function(x1,y1){
-  return x1*x1+y1*y1;
-};
+let h = function(x,y){
+  let x1 = 4 * x - 2;
+  let y1 = 4 * y - 2;
+  let x2 = Math.PI * x * 4;
+  let y2 = Math.PI * y * 4;
 
-let fg = function(x2,y2){
-  return Math.sin(x2) + Math.cos(y2);
+  let r = x1 * x1 + y1 * y1;
+  let g = Math.sin(x2) + Math.cos(y2);
+  let b = 0;
+
+  let rgb = [r,g,b];
+  return rgb;
 };
 
 function draw(){
@@ -32,15 +38,11 @@ function draw(){
   let imageData = readPixels();
 
   for(let i = 0; i <=m; i++){
-    let x1 = 4 * (i/m) - 2;
-    let x2 = Math.PI * (i/m) * 4;
-    
+    let x = (i/m);
     for(let j = 0; j <=m; j++){
-      let y1 = 4 * (j/m) - 2;
-      let y2 = Math.PI * (j/m) * 4;
-      let r = fr(x1,y1);
-      let g = fg(x2,y2);
-      putPixel(i,j,r,g,0,a,imageData);
+      let y = (j/m);
+      let c = h(x,y);
+      putPixel(i,j,c[0],c[1],c[2],a,imageData);
     };
   };
   refreshPixels(imageData);
