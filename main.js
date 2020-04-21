@@ -1,5 +1,6 @@
 function putPixel(x,y,r,g,b,a,imageData) {
   if(!(x < imageData.height && y < imageData.width  && x >= 0 && y >= 0)) return;
+
   let z = (y * imageData.width + x) * 4;
 
   let pixels = imageData.data;
@@ -44,6 +45,23 @@ function draw(){
       let c = h(x,y);
       putPixel(i,j,c[0],c[1],c[2],a,imageData);
     };
+  };
+  refreshPixels(imageData);
+};
+
+let k = function(t){
+  let xy = [50 * t, 200 * t];
+  return xy;
+};
+
+function drawCurve(){
+  let m = 512;
+  let imageData = readPixels();
+
+  for(let i = 0; i <=m; i++){
+    let x = (i/m);
+    let d = k(x);
+    putPixel(d[0]|0, d[1]|0, 0,0,1,1,imageData);
   };
   refreshPixels(imageData);
 };
