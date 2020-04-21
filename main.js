@@ -52,20 +52,21 @@ function draw(){
   refreshPixels(imageData);
 };
 
-let k = function(t){
+let k = function(s){
+  let t = s * Math.PI * 2;
   let x = 16 * (Math.sin(t) ** 3);
-  let y = (13 * Math.cos(t)) - (5 * Math.cos(2*t)) - (2 * Math.cos(3*t)) - (Math.cos(4*t));
+  let y = -(13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t));
   return [x,y];
 };
 
 function drawCurve(){
-  let m = 512;
+  let m = 2048;
   let imageData = readPixels();
 
   for(let i = 0; i <=m; i++){
-    let t = (i/m) * 10;
+    let t = (i/m);
     let d = k(t);
-    putPixel(d[0], d[1], 0,0,1,1,imageData);
+    putPixel( d[0]*10 + 250, d[1]*10 + 220, 0,0,1,1,imageData);
   };
   refreshPixels(imageData);
 };
