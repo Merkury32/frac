@@ -1,1 +1,3 @@
-[See this project ONLINE](https://merkury32.github.io/frac/)
+Experimental app with js canvas
+
+[See this project online](https://merkury32.github.io/frac/)
